@@ -12,6 +12,7 @@ def parse_guess(raw: str):
     raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
 
 
+# FIXME: this function is not working correctly comparing guess and secret
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
