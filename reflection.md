@@ -5,9 +5,9 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+it was a mess. There are too many bugs so it was difficult to know what exactly was wrong instead of having a group of things that were wrong. It helped to pick what to fix.
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
-
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
@@ -66,21 +66,28 @@ File "C:\Users\marit\AppData\Roaming\Python\Python314\site-packages\streamlit\ru
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
-- Describe at least one test you ran (manual or using pytest)  
-  and what it showed you about your code.
+Check the bug, recognize were the problem is in the code, ask AI, check for the answer and test it manually. Read the changes to see if it makes sense.
+- Describe at least one test you ran (manual or using pytest) and what it showed you about your code.
+Checking guess that were too high, too low or just correct and see if they return the correct answer.
 - Did AI help you design or understand any tests? How?
+Yes, they help me write them and how to test them.
 
 ---
 
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+Streamlit reruns the whole script top to bottom every time you do anything, click a button, type a guess, change a dropdown. So any normal variable resets every time, like the script is starting fresh.
 
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
-  - This could be a testing habit, a prompting strategy, or a way you used Git.
+look into bugs this way and constantly commiting changes
+  
 - What is one thing you would do differently next time you work with AI on a coding task?
+maybe use it more throughout the codebase
+
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+It helped me view how to use it to refactor functions and how it can write tests for me. This is useful as I would have more time to look into bugs.
