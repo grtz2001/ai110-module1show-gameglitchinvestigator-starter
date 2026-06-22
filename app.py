@@ -6,6 +6,7 @@ from logic_utils import (
     parse_guess,
     check_guess,
     update_score,
+    reset_game_state,
 )
 
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
@@ -77,11 +78,8 @@ with col3:
 
 # FIX: new game restarts history too
 if new_game:
-    st.session_state.secret = random.randint(low, high)
-    st.session_state.attempts = 1
-    st.session_state.score = 0
-    st.session_state.status = "playing"
-    st.session_state.history = []
+    # added a function for game state
+    reset_game_state(st.session_state, random.randint(low, high))
     guess_key = f"guess_input_{difficulty}"
     if guess_key in st.session_state:
         del st.session_state[guess_key]

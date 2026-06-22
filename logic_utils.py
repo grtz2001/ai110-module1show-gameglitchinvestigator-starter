@@ -48,6 +48,21 @@ def check_guess(guess, secret):
         return "Too Low", "📈 Go HIGHER!"
 
 
+def reset_game_state(state, secret):
+    """
+    Reset a session-state-like mapping for a fresh game.
+
+    Clears history, attempts, and score so a "New Game" fully starts over.
+    `state` can be st.session_state or any dict-like object.
+    """
+    state["secret"] = secret
+    state["attempts"] = 1
+    state["score"] = 0
+    state["status"] = "playing"
+    state["history"] = []
+    return state
+
+
 def update_score(current_score: int, outcome: str, attempt_number: int):
     """Update score based on outcome and attempt number."""
     if outcome == "Win":

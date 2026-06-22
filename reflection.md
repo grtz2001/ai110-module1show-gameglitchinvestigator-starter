@@ -27,7 +27,8 @@ Document at least 3 bugs you found. Add rows as needed.
 Claude
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 One small example is that I asked how to correctly format the table for the log table. 
-one good: it help me when I asked why the comparison between guess and secret was almost never correct, I suspected it was because of the str - int comparisson, so I asked claude about it and it confirmed it and helped corrected it (where the guess is passed for comparisson). Then it help me with the hint wording, changing it to the appropiate one. If the guess was higher, it would return "go lower" and so
+one good: it help me when I asked why the comparison between guess and secret was almost never correct, I suspected it was because of the str - int comparisson, so I asked claude about it and it confirmed it and helped corrected it (where the guess is passed for comparisson). Then it help me with the hint wording, changing it to the appropiate one. If the guess was higher, it would return "go lower" and so.
+I was able to confirm all on this by playing again and have different guesses.
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 when i tried restarting the game correctly (including the history), this was the fix that AI recomended:
 "if new_game:
