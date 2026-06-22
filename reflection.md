@@ -29,7 +29,37 @@ Claude
 One small example is that I asked how to correctly format the table for the log table. 
 one good: it help me when I asked why the comparison between guess and secret was almost never correct, I suspected it was because of the str - int comparisson, so I asked claude about it and it confirmed it and helped corrected it (where the guess is passed for comparisson). Then it help me with the hint wording, changing it to the appropiate one. If the guess was higher, it would return "go lower" and so
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+when i tried restarting the game correctly (including the history), this was the fix that AI recomended:
+"if new_game:
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.attempts = 1
+    st.session_state.score = 0
+    st.session_state.status = "playing"
+    st.session_state.history = []
+    guess_key = f"guess_input_{difficulty}"
+    if guess_key in st.session_state:
+        st.session_state[guess_key] = ""
+    st.success("New game started.")
+    st.rerun()"
+but its not working, when I played the game again, and tried a couple times it would not let me restart the game:
+streamlit.errors.StreamlitAPIException: st.session_state.guess_input_Normal cannot be modified after the widget with key guess_input_Normal is instantiated.
 
+Traceback:
+File "C:\Users\marit\OneDrive\Escritorio\ai110-module1show-gameglitchinvestigator-starter\app.py", line 135, in <module>
+    st.session_state[guess_key] = ""
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+File "C:\Users\marit\AppData\Roaming\Python\Python314\site-packages\streamlit\runtime\metrics_util.py", line 698, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+File "C:\Users\marit\AppData\Roaming\Python\Python314\site-packages\streamlit\runtime\state\session_state_proxy.py", line 114, in __setitem__
+    get_session_state()[key] = value
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+File "C:\Users\marit\AppData\Roaming\Python\Python314\site-packages\streamlit\runtime\state\safe_session_state.py", line 109, in __setitem__
+    self._state[key] = value
+    ~~~~~~~~~~~^^^^^
+File "C:\Users\marit\AppData\Roaming\Python\Python314\site-packages\streamlit\runtime\state\session_state.py", line 608, in __setitem__
+    raise StreamlitAPIException(
+    ...<2 lines>...
+    )
 ---
 
 ## 3. Debugging and testing your fixes

@@ -33,6 +33,7 @@ def check_guess(guess, secret):
     if guess == secret:
         return "Win", "🎉 Correct!"
 
+    #FIX: corrected the hint corresponding to the guess being higher or lower than the secret
     if guess > secret:
         return "Too High", "📉 Go LOWER!"
     else:
@@ -124,10 +125,16 @@ with col2:
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
-# FIXME: new game button is not resetting the game state correctly
+# FIX: new game restarts history too
 if new_game:
-    st.session_state.attempts = 0
-    st.session_state.secret = random.randint(1, 100)
+    st.session_state.secret = random.randint(low, high)
+    st.session_state.attempts = 1
+    st.session_state.score = 0
+    st.session_state.status = "playing"
+    st.session_state.history = []
+    guess_key = f"guess_input_{difficulty}"
+    if guess_key in st.session_state:
+        del st.session_state[guess_key]
     st.success("New game started.")
     st.rerun()
 
@@ -149,7 +156,7 @@ if submit:
     else:
         st.session_state.history.append(guess_int)
 
-        # fix the secret being always in int
+        # FIX: the secret always being int
         secret = st.session_state.secret
 
         outcome, message = check_guess(guess_int, secret)
