@@ -13,10 +13,10 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
-|-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| Guess possible numbers | Give accurate feedback to input higher or lower numbers next | Answer was 97, first guess was 99 and was told to go higher, next 98 - higher, next 100 - lower, next 10 - lower, next 3 - lower, next 1 - lower, finally 0 - lower and lost the game | none |
+| Click 'new game' button | New game would start | The game remains the same, in order to get a new game you need to refresh the page | none |
+| Deactive 'show hint' button and activate it again | Hint will disappear but then appear again | Hint disappears but wont appear again | none |
+| Change difficulty mid game | User should not be able to change difficulty mid game, and if they do, it should restart a new game | The difficulty changes, but the game remains the same | preventOverflow` modifier is required by `hide` modifier in order to work, be sure to include it before `hide`! |
 
 ---
 
